@@ -10,10 +10,16 @@ def sd_cal(df, entity, city, salary):
     # 只取第一行，转成 Series
     row = result.iloc[0]
 
+    def percent_to_float(s):
+    """把'8.00%'或者'2%'之类的字符串转成小数0.08"""
+    if isinstance(s, str):
+        return float(s.strip().replace('%', '')) / 100
+    return float(s)
+    
     # 各类比例
-    shebao_percent = float(row['个人-养老']) + float(row['个人-失业'])
-    yiliao_percent = float(row['个人-医疗'])
-    gjj_percent = float(row['个人-公积金'])
+    shebao_percent = percent_to_float(row['个人-养老']) + percent_to_float(row['个人-失业'])
+    yiliao_percent = percent_to_float(row['个人-医疗'])
+    gjj_percent = percent_to_float(row['个人-公积金'])
     # 大病保险金额（可能不存在）
     dabing_amount = float(row.get("个人-大病"))
     dabing_amount = 0 if pd.isna(dabing_amount) else dabing_amount
