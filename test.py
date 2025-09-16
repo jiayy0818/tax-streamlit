@@ -59,7 +59,7 @@ with col3:
     baby = st.selectbox("三岁以下婴幼儿数:", options=[0,1,2,3])
     ce = st.selectbox("接受义务教育、高中阶段教育、高等教育子女数:", options=range(0,9))
 
-    ace = st.selectbox("学历继续教育", options=["进行学历继续教育","未进行学历继续教育"])
+    ace = st.selectbox("学历继续教育", options=["进行学历继续教育","未进行学历继续教育"], index=1)
     pqce = st.selectbox("职业资格继续教育:",options=range(0,3))
 
     mimonth = st.selectbox("支付首套住房贷款利息月份数:", options=range(0,13))
