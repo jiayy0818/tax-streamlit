@@ -11,9 +11,8 @@ def sd_cal(df, entity, city, salary):
     row = result.iloc[0]
 
     def percent_to_float(s):
-    """把'8.00%'或者'2%'之类的字符串转成小数0.08"""
-    if isinstance(s, str):
-        return float(s.strip().replace('%', '')) / 100
+        if isinstance(s, str):
+            return float(s.strip().replace('%', '')) / 100
     return float(s)
     
     # 各类比例
