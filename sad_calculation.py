@@ -24,7 +24,7 @@ def sad_cal(baby, ce, ace, pqce, mimonth, hrmonth, city, aged, sibling, medical)
     hr_amount = rent_cal(hrmonth,city) #租金
 
     aged_amount = (aged * 12 * 3000) / (sibling+1) #赡养老人
-    medical_amount = min(medical-15000, 80000) #大病医疗
+    medical_amount = max(0,min(medical-15000, 80000)) #大病医疗
 
     total_amount = baby_amount + ce_amount + ace_amount + pqce_amount + mi_amount + hr_amount + aged_amount + medical_amount
 
