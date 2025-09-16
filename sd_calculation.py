@@ -20,9 +20,9 @@ def sd_cal(df, entity, city, salary):
         return float(s)
 
     # 各类比例
-    shebao_percent = percent_to_float(row['个人-养老']) + percent_to_float(row['个人-失业'])
-    yiliao_percent = percent_to_float(row['个人-医疗'])
-    gjj_percent = percent_to_float(row['个人-公积金'])
+    shebao_percent = row['个人-养老'] + row['个人-失业']
+    yiliao_percent = row['个人-医疗']
+    gjj_percent = row['个人-公积金']
     # 大病保险金额（可能不存在）
     dabing_amount = str_to_float(row.get("个人-大病"))
     dabing_amount = 0 if pd.isna(dabing_amount) else dabing_amount
