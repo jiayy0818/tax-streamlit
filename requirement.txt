@@ -2,5 +2,5 @@ streamlit
 openpyxl
 pandas
 numpy
-requests
+requests>=3.1.2
 
