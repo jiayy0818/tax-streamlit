@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-url = 'https://raw.githubusercontent.com/jiayy0818/tax-streamlit/main/rule.csv'
-df = pd.read_csv(url)
+url = 'https://raw.githubusercontent.com/jiayy0818/tax-streamlit/main/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91rule.xlsx'
+df = pd.read_excel(url, engine="openpyxl")
 ls_entity = list(set(df['RGB']))
 ls_entity = sorted(ls_entity)
 ls_city = list(set(df['缴纳地']))
