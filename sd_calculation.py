@@ -13,7 +13,6 @@ def sd_cal(df, entity, city, salary):
     def percent_to_float(s):
         if isinstance(s, str):
             return float(s.strip().replace('%', '')) / 100
-    return float(s)
     
     # 各类比例
     shebao_percent = percent_to_float(row['个人-养老']) + percent_to_float(row['个人-失业'])
