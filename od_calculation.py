@@ -1,7 +1,12 @@
 def od_cal(df, ec, salary, entity, city, tahi, tari):
     result = df[(df["RGB"] == entity) & (df["缴纳地"] == city)]
     row = result.iloc[0]
-    upper_limit = row['社保-上限']
+
+    def str_to_float(s):
+        if isinstance(s, str):
+            return float(s.replace(',', ''))
+        return float(s)
+    upper_limit = str_to_float(row['社保-上限'])
 
     if ec == '0':
         ec_amount = min(1, upper_limit)
