@@ -11,20 +11,20 @@ def sd_cal(df, entity, city, salary):
     row = result.iloc[0]
 
     # 各类比例
-    shebao_percent = row['个人-养老'] + row['个人-失业']
-    yiliao_percent = row['个人-医疗']
-    gjj_percent = row['个人-公积金']
+    shebao_percent = float(row['个人-养老']) + float(row['个人-失业'])
+    yiliao_percent = float(row['个人-医疗'])
+    gjj_percent = float(row['个人-公积金'])
     # 大病保险金额（可能不存在）
-    dabing_amount = row.get("个人-大病")
+    dabing_amount = float(row.get("个人-大病"))
     dabing_amount = 0 if pd.isna(dabing_amount) else dabing_amount
 
     # 上下限
-    shebao_upper = row['社保-上限']
-    shebao_lower = row['社保-下限']
-    yiliao_upper = row['医疗-上限']
-    yiliao_lower = row['医疗-下限']
-    gjj_upper = row['公积金-上限']
-    gjj_lower = row['公积金-下限']
+    shebao_upper = float(row['社保-上限'])
+    shebao_lower = float(row['社保-下限'])
+    yiliao_upper = float(row['医疗-上限'])
+    yiliao_lower = float(row['医疗-下限'])
+    gjj_upper = float(row['公积金-上限'])
+    gjj_lower = float(row['公积金-下限'])
 
     # 基数计算（保证在上下限之间）
     shebao_base = min(max(salary, shebao_lower), shebao_upper)
