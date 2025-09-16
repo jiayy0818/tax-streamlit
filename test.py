@@ -4,7 +4,9 @@ import pandas as pd
 url = 'https://raw.githubusercontent.com/jiayy0818/tax-streamlit/main/rule.csv'
 df = pd.read_csv(url)
 ls_entity = list(set(df['RGB']))
+ls_entity = sorted(ls_entity)
 ls_city = list(set(df['缴纳地']))
+ls_city = sorted(ls_city)
 
 from ws_calculation import ws_cal
 from sd_calculation import sd_cal
